@@ -2,6 +2,7 @@
 namespace GalacticDiscover\Maps;
 
 use GalacticDiscover\Items\HandBlaster;
+use GalacticDiscover\Items\HeavyBlaster;
 use GalacticDiscover\Items\LaserSword;
 use GalacticDiscover\Items\ShoulderBlaster;
 use GalacticDiscover\Monsters\Dooku;
@@ -34,7 +35,7 @@ class TestMap extends Blueprint {
     }
 
     public function items() : array {
-        return [new LaserSword(), new HandBlaster(), new ShoulderBlaster()];
+        return [new LaserSword(), new HandBlaster(), new ShoulderBlaster(), new HeavyBlaster()];
     }
 
     public function monsters() : array {
