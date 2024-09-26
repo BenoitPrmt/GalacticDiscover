@@ -12,7 +12,7 @@ class Map2 extends Blueprint {
     }
 
     public function name() : string {
-        return 'Test map';
+        return 'Test';
     }
 
     public function description() : string {
