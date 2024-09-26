@@ -5,10 +5,10 @@ use Jugid\Staurie\Game\Item_Equippable;
 
 class ShoulderBlaster extends Item_Equippable {
     public function name() : string {
-        return "Blaster-d'épaule";
+        return "Shoulder-Blaster";
     }
     public function description(): string {
-        return "Attention c'est dangereux";
+        return "Be Careful it's dangerous";
     }
     public function body_part(): string {
         return "hand";
