@@ -1,4 +1,18 @@
 {
+    "name": "benoit/mud-php",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Benoit\\MudPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "BenoitPrmt",
+            "email": "benoitparmentier45@gmail.com"
+        }
+    ],
     "require": {
         "jugid/staurie": "^1.1"
     }
