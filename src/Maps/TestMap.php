@@ -3,6 +3,7 @@ namespace GalacticDiscover\Maps;
 
 use GalacticDiscover\Items\HandBlaster;
 use GalacticDiscover\Items\LaserSword;
+use GalacticDiscover\Items\ShoulderBlaster;
 use GalacticDiscover\Monsters\Dooku;
 use GalacticDiscover\Npcs\Yoda;
 use Jugid\Staurie\Component\Map\Blueprint;
@@ -33,7 +34,7 @@ class TestMap extends Blueprint {
     }
 
     public function items() : array {
-        return [new LaserSword(), new HandBlaster()];
+        return [new LaserSword(), new HandBlaster(), new ShoulderBlaster()];
     }
 
     public function monsters() : array {
