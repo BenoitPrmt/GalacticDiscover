@@ -4,31 +4,31 @@ namespace GalacticDiscover\Monsters;
 
 use Jugid\Staurie\Game\Monster;
 
-class Dooku extends Monster
+class Wookies extends Monster
 {
   public function name(): string
   {
-    return "Dooku";
+    return "Wookies";
   }
   public function description(): string
   {
-    return "I sense great fear in you. You have anger. But you don't use them.";
+    return "Uhrrrrr Aghrrrrr";
   }
   public function level(): int
   {
-    return 60;
+    return 40;
   }
   public function health_points(): int
   {
-    return 65;
+    return 60;
   }
   public function defense(): int
   {
-    return 70;
+    return 30;
   }
   public function experience(): int
   {
-    return 40;
+    return 20;
   }
   public function skills(): array
   {
