@@ -8,6 +8,7 @@ use Jugid\Staurie\Component\Map\Map;
 use Jugid\Staurie\Component\Menu\Menu;
 use Jugid\Staurie\Component\PrettyPrinter\PrettyPrinter;
 use Jugid\Staurie\Staurie;
+use GalacticDiscover\Components\Combat\Combat;
 
 require_once __DIR__.'/vendor/autoload.php'; //A REMPLACER
 
@@ -18,7 +19,8 @@ $staurie->register(
         PrettyPrinter::class,
         MainCharacter::class,
         Inventory::class,
-        Level::class
+        Level::class,
+        Combat::class
     ]
 );
 

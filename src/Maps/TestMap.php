@@ -1,7 +1,7 @@
 <?php
 namespace GalacticDiscover\Maps;
 use GalacticDiscover\Items\LaserSword;
-use GalacticDiscover\Npcs\Dooku;
+use GalacticDiscover\Monsters\Dooku;
 use GalacticDiscover\Npcs\Yoda;
 use Jugid\Staurie\Component\Map\Blueprint;
 use Jugid\Staurie\Game\Position\Position;
@@ -26,7 +26,7 @@ class TestMap extends Blueprint {
     }
 
     public function npcs() : array {
-        return [new Dooku(), new Yoda()];
+        return [new Yoda()];
     }
 
     public function items() : array {
@@ -34,6 +34,6 @@ class TestMap extends Blueprint {
     }
 
     public function monsters() : array {
-        return [];
+        return [new Dooku()];
     }
 }
