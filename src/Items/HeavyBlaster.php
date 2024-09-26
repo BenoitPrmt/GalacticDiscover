@@ -5,10 +5,10 @@ use Jugid\Staurie\Game\Item_Equippable;
 
 class HeavyBlaster extends Item_Equippable {
     public function name() : string {
-        return "Blaster-Lourd";
+        return "Heavy-Turrets";
     }
     public function description(): string {
-        return "Attention ça défouraille";
+        return "Watch out, it's going wild!";
     }
     public function body_part(): string {
         return "hand";

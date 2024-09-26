@@ -5,10 +5,10 @@ use Jugid\Staurie\Game\Item_Equippable;
 
 class HandBlaster extends Item_Equippable {
     public function name() : string {
-        return "Blaster-de-poing";
+        return "Hand-Blaster";
     }
     public function description(): string {
-        return "Attention ça fait mal";
+        return "Careful it's hurt";
     }
     public function body_part(): string {
         return "hand";
