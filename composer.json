@@ -1,0 +1,5 @@
+{
+    "require": {
+        "jugid/staurie": "^1.1"
+    }
+}
