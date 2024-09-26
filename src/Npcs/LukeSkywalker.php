@@ -4,18 +4,18 @@ namespace GalacticDiscover\Npcs;
 
 use Jugid\Staurie\Game\Npc;
 
-class Yoda extends Npc
+class LukeSkywalker extends Npc
 {
   public function name(): string
   {
-    return "Yoda";
+    return "LukeSkywalker";
   }
   public function description(): string
   {
-    return "Do or do not...there is no try.";
+    return "It's Your Choice, But I Warn You Not To Underestimate My Powers.";
   }
   public function speak(): string|array
   {
-    return "Hello child";
+    return "Welcome here!";
   }
 }
