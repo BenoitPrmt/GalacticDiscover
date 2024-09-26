@@ -1,16 +1,14 @@
 <?php
 namespace GalacticDiscover\Maps;
-use GalacticDiscover\Items\LaserSword;
-use GalacticDiscover\Npcs\Dooku;
-use GalacticDiscover\Npcs\Yoda;
 use Jugid\Staurie\Component\Map\Blueprint;
 use Jugid\Staurie\Game\Position\Position;
-class TestMap extends Blueprint {
+
+class Map2 extends Blueprint {
     private Position $position;
 
     public function __construct()
     {
-        $this->position = new Position(0,0);
+        $this->position = new Position(2,8);
     }
 
     public function name() : string {
@@ -26,11 +24,11 @@ class TestMap extends Blueprint {
     }
 
     public function npcs() : array {
-        return [new Dooku(), new Yoda()];
+        return [];
     }
 
     public function items() : array {
-        return [new LaserSword()];
+        return [];
     }
 
     public function monsters() : array {
