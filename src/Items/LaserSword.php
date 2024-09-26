@@ -4,10 +4,10 @@ use Jugid\Staurie\Game\Item_Equippable;
 
 class LaserSword extends Item_Equippable {
     public function name() : string {
-        return "SabreLaser";
+        return "Laser-Sword";
     }
     public function description(): string {
-        return "Attention, c'est trèèès tranchant...";
+        return "Be careful, it's very sharp....";
     }
     public function body_part(): string {
         return "hand";
