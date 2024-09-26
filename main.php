@@ -10,7 +10,7 @@ use Jugid\Staurie\Staurie;
 
 require_once __DIR__.'/vendor/autoload.php'; //A REMPLACER
 
-$staurie= new Staurie('SW - MUD');
+$staurie= new Staurie('Galactic Discover');
 $staurie->register(
     [
         Console::class,
