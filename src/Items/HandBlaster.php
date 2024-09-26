@@ -1,22 +1,23 @@
 <?php
+
 namespace GalacticDiscover\Items;
 use Jugid\Staurie\Game\Item_Equippable;
 
-class LaserSword extends Item_Equippable {
+class HandBlaster extends Item_Equippable {
     public function name() : string {
-        return "SabreLaser";
+        return "Blaster-de-poing";
     }
     public function description(): string {
-        return "Attention, c'est trèèès tranchant...";
+        return "Attention ça fait mal";
     }
     public function body_part(): string {
         return "hand";
     }
     public function statistics(): array {
         return [
-            'damages'=> 5,
-            'defense'=> 2,
-            'range' => 1
+            'damages'=> 2,
+            'defense'=> 0,
+            'range' => 2
         ];
     }
 }
