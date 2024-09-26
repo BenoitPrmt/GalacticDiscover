@@ -8,7 +8,7 @@ class DarthVader extends Monster
 {
   public function name(): string
   {
-    return "Darth Vader";
+    return "DarthVader";
   }
   public function description(): string
   {
