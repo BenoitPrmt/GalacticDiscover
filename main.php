@@ -42,7 +42,10 @@ $map->configuration([
 ]);
 
 $charStats = new Statistics();
-$charStats->addDefault('hp', default_value: 100);
+$charStats
+  ->addDefault('hp', default_value: 100)
+  ->addDefault('side (0: Dark Side | 100: Light Side)', default_value: 50);
+
 
 $character = $container->registerComponent(MainCharacter::class);
 $character->configuration([
