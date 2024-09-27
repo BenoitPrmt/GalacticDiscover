@@ -2,6 +2,7 @@
 
 namespace GalacticDiscover\Npcs;
 
+use GalacticDiscover\Items\Force;
 use Jugid\Staurie\Game\Npc;
 
 class Yoda extends Npc
@@ -16,6 +17,9 @@ class Yoda extends Npc
   }
   public function speak(): string|array
   {
+    while (!$this->playerHasItem('Force')) {
+      $this->giveItem(new Force());
+    }
     return "Hello child";
   }
 }
