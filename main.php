@@ -10,6 +10,7 @@ use Jugid\Staurie\Component\Menu\Menu;
 use Jugid\Staurie\Component\PrettyPrinter\PrettyPrinter;
 use Jugid\Staurie\Staurie;
 use GalacticDiscover\Components\Combat\Combat;
+use GalacticDiscover\Items\RKB_12;
 
 require_once __DIR__ . '/vendor/autoload.php'; //A REMPLACER
 
@@ -54,7 +55,7 @@ $character->configuration([
     'head' => null,
     'hand' => null,
     'shield' => null,
-    'shoulders' => null,
+    'shoulders' => new RKB_12(),
     'back' => null,
     'outfit' => null,
   ]
