@@ -6,6 +6,7 @@ use GalacticDiscover\Components\Combat\Functions\FightFunction;
 use GalacticDiscover\Items\HeavyBlaster;
 use GalacticDiscover\Items\JetPack;
 use GalacticDiscover\Items\LaserSword;
+use GalacticDiscover\Items\Outfits\DeathTrooper;
 use GalacticDiscover\Items\Outfits\Mandalorian;
 use Jugid\Staurie\Component\AbstractComponent;
 use Jugid\Staurie\Component\Character\MainCharacter;
@@ -76,7 +77,7 @@ class Combat extends AbstractComponent {
                     ],
                     'victim' => [
                         'name' => $monsterName,
-                        'defense' => $enemy['defense'] * 20,
+                        'defense' => $enemy['defense'],
                         'hp' => &$enemyHp,
                         'totalHp' => $enemyHpTotal
                     ]
@@ -88,7 +89,7 @@ class Combat extends AbstractComponent {
                     ],
                     'victim' => [
                         'name' => $character->name,
-                        'defense' => $character->statistics->value('defense'),
+                        'defense' => $character->statistics->value('defense') * 10,
                         'hp' => &$userHp,
                         'totalHp' => $userHpTotal
                     ]
@@ -101,7 +102,8 @@ class Combat extends AbstractComponent {
 
                 $attackerDamage = $roundTurn['attacker']['damage'];
                 $victimDefense = $roundTurn['victim']['defense'];
-                $damageOnVictim = ($attackerDamage - $victimDefense) > 0 ? $attackerDamage - $victimDefense : 0;
+                $maxDefense = $attackerDamage * 0.75;
+                $damageOnVictim = ($attackerDamage - min($victimDefense, $maxDefense)) > 0 ? $attackerDamage - min($victimDefense, $maxDefense) : 0;
 
                 if ($damageOnVictim === 0) {
                     $pp->writeLn($roundTurn['victim']['name'] . " has protected himself and took 0 HP");
@@ -126,7 +128,7 @@ class Combat extends AbstractComponent {
             // TODO: Death message
         } else if ($enemyHp <= 0) {
             $pp->writeLn("VICTORY ! " . $character->name . " killed " . $monsterName . " in " . $round . " rounds", 'red');
-            $character->statistics->add('hp', $userHpTotal - $userHp);
+            $character->statistics->add('hp', ($userHpTotal - $userHp) / 2);
             $pp->write("Life: ");
             $pp->writeProgressbar($userHp, max: $userHpTotal);
 
@@ -134,7 +136,8 @@ class Combat extends AbstractComponent {
                 "TheMandalorian" => [new LaserSword(), new Mandalorian()],
                 "Bobafett" => [new JetPack()],
                 "LukeSkywalker" => [new LaserSword()],
-                "Dooku" => [new HeavyBlaster()]
+                "Dooku" => [new HeavyBlaster()],
+                "JabbaTheHutt" => [new DeathTrooper()]
             ];
 
             if (array_key_exists($monsterName, $monsterItemsToDrop)) {
