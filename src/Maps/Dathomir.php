@@ -2,7 +2,7 @@
 
 namespace GalacticDiscover\Maps;
 
-use GalacticDiscover\Monsters\TheMandalorian;
+use GalacticDiscover\Monsters\DarthMaul;
 use Jugid\Staurie\Component\Map\Blueprint;
 use Jugid\Staurie\Game\Position\Position;
 
@@ -42,6 +42,10 @@ class Dathomir extends Blueprint
 
   public function monsters(): array
   {
-    return [new TheMandalorian()];
+    $character = $this->container->getCharacter();
+    if ($character->statistics->value('side (0: Dark Side | 100: Light Side)') >= 50) {
+      return [new DarthMaul()];
+    }
+    return [];
   }
 }

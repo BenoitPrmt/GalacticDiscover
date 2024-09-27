@@ -2,6 +2,7 @@
 
 namespace GalacticDiscover\Maps;
 
+use GalacticDiscover\Items\Outfits\X_Wing;
 use GalacticDiscover\Monsters\DarthVader;
 use Jugid\Staurie\Component\Map\Blueprint;
 use Jugid\Staurie\Game\Position\Position;
@@ -37,7 +38,7 @@ class Yavin4 extends Blueprint
 
   public function items(): array
   {
-    return [];
+    return [new X_Wing()];
   }
 
   public function monsters(): array
