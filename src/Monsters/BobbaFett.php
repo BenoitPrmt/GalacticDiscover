@@ -32,6 +32,8 @@ class BobbaFett extends Monster
   }
   public function skills(): array
   {
-    return [];
+    return [
+      "attack" => 1 //From 0 to 5
+    ];
   }
 }

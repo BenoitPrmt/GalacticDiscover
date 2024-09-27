@@ -32,6 +32,8 @@ class Wookies extends Monster
   }
   public function skills(): array
   {
-    return [];
+    return [
+      "attack" => 1
+    ];
   }
 }
