@@ -5,7 +5,6 @@ namespace GalacticDiscover\Components\Combat;
 use GalacticDiscover\Components\Combat\Functions\FightFunction;
 use Jugid\Staurie\Component\AbstractComponent;
 use Jugid\Staurie\Component\Character\MainCharacter;
-use Jugid\Staurie\Component\Character\Statistics;
 use Jugid\Staurie\Component\PrettyPrinter\PrettyPrinter;
 use Jugid\Staurie\Game\Monster;
 
@@ -106,13 +105,24 @@ class Combat extends AbstractComponent {
                     $roundTurn['victim']['hp'] -= $damageOnVictim;
                     $roundTurn['victim']['hp'] = max($roundTurn['victim']['hp'], 0);
 
+                    if ($roundTurn['victim']['hp'] <= 0) break;
+
                     $pp->writeLn($roundTurn['attacker']['name'] . "hit and remove " . $damageOnVictim . "HP to " . $roundTurn['victim']['name']);
                 }
                 $pp->writeProgressbar($roundTurn['victim']['hp'], max: $roundTurn['victim']['totalHp']);
             }
-            // TODO: check end condition
+
+            if ($userHp <= 0 or $enemyHp <= 0) break;
+
             $round++;
         }
+
+        if ($userHp <= 0) {
+            $pp->writeLn("GAME OVER ! " . $monsterName . " killed " . $character->name . " in " . $round . " rounds", 'red');
+        } else if ($enemyHp <= 0) {
+            $pp->writeLn("VICTORY ! " . $character->name . " killed " . $monsterName . " in " . $round . " rounds", 'red');
+        }
+
     }
     public function name(): string {
         return "combat";
