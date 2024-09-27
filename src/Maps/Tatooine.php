@@ -3,6 +3,7 @@
 namespace GalacticDiscover\Maps;
 
 use GalacticDiscover\Monsters\Dooku;
+use GalacticDiscover\Monsters\JabbaTheHutt;
 use GalacticDiscover\Npcs\JarJarBinks;
 use Jugid\Staurie\Component\Map\Blueprint;
 use Jugid\Staurie\Game\Position\Position;
@@ -43,6 +44,6 @@ class Tatooine extends Blueprint
 
   public function monsters(): array
   {
-    return [new Dooku()];
+    return [new JabbaTheHutt(), new Dooku()];
   }
 }

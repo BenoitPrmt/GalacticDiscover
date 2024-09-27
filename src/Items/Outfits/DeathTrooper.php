@@ -4,15 +4,15 @@ namespace GalacticDiscover\Items\Outfits;
 
 use Jugid\Staurie\Game\Item_Equippable;
 
-class Mandalorian extends Item_Equippable
+class DeathTrooper extends Item_Equippable
 {
   public function name(): string
   {
-    return "MandalorianOutfit";
+    return "DeathTrooper";
   }
   public function description(): string
   {
-    return "Made from beskar";
+    return "DeathTrooper Outfit.";
   }
   public function body_part(): string
   {
@@ -21,7 +21,7 @@ class Mandalorian extends Item_Equippable
   public function statistics(): array
   {
     return [
-      'defense' => 5
+      'defense' => 3.5
     ];
   }
 }
