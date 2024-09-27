@@ -32,7 +32,11 @@ class Dagobah extends Blueprint
 
   public function npcs(): array
   {
-    return [new Yoda()];
+    $character = $this->container->getCharacter();
+    if ($character->statistics->value('side (0: Dark Side | 100: Light Side)') >= 50) {
+      return [new Yoda()];
+    }
+    return [];
   }
 
   public function items(): array
