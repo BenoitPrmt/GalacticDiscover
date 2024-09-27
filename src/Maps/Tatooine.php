@@ -2,7 +2,6 @@
 
 namespace GalacticDiscover\Maps;
 
-use GalacticDiscover\Items\HandBlaster;
 use GalacticDiscover\Monsters\Dooku;
 use GalacticDiscover\Npcs\JarJarBinks;
 use Jugid\Staurie\Component\Map\Blueprint;
@@ -39,7 +38,7 @@ class Tatooine extends Blueprint
 
   public function items(): array
   {
-    return [new HandBlaster()];
+    return [];
   }
 
   public function monsters(): array
