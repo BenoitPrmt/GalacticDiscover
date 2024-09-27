@@ -13,7 +13,7 @@ use GalacticDiscover\Components\Combat\Combat;
 
 require_once __DIR__ . '/vendor/autoload.php'; //A REMPLACER
 
-$staurie = new Staurie('Galactic Discover');
+$staurie = new Staurie('🪐 Galactic Discover');
 $staurie->register(
   [
     Console::class,
@@ -28,7 +28,7 @@ $staurie->register(
 $container = $staurie->getContainer();
 $menu = $container->registerComponent(Menu::class);
 $menu->configuration([
-  'text' => 'Welcome to this awesome test adventure',
+  'text' => 'Let us take you on a journey to a galaxy far, far away. 🚀',
   'labels' => [
     'new_game' => 'Enter the world',
     'quit' => 'Exit game',
