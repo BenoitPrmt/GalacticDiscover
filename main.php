@@ -1,6 +1,7 @@
 <?php
 
 use Jugid\Staurie\Component\Character\MainCharacter;
+use Jugid\Staurie\Component\Character\Statistics;
 use Jugid\Staurie\Component\Console\Console;
 use Jugid\Staurie\Component\Inventory\Inventory;
 use Jugid\Staurie\Component\Level\Level;
@@ -38,6 +39,14 @@ $map = $container->registerComponent(Map::class);
 $map->configuration([
     'directory' => __DIR__ . '/src/Maps',
     'namespace' => 'GalacticDiscover\Maps'
+]);
+
+$charStats = new Statistics();
+$charStats->addDefault('hp', 100);
+
+$character = $container->registerComponent(MainCharacter::class);
+$character->configuration([
+    'statistics' => $charStats
 ]);
 
 $staurie->run();
