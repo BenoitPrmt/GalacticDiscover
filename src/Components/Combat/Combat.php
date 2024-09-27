@@ -3,6 +3,9 @@
 namespace GalacticDiscover\Components\Combat;
 
 use GalacticDiscover\Components\Combat\Functions\FightFunction;
+use GalacticDiscover\Items\HeavyBlaster;
+use GalacticDiscover\Items\LaserSword;
+use GalacticDiscover\Items\Outfits\Mandalorian;
 use Jugid\Staurie\Component\AbstractComponent;
 use Jugid\Staurie\Component\Character\MainCharacter;
 use Jugid\Staurie\Component\PrettyPrinter\PrettyPrinter;
@@ -107,7 +110,7 @@ class Combat extends AbstractComponent {
 
                     if ($roundTurn['victim']['hp'] <= 0) break;
 
-                    $pp->writeLn($roundTurn['attacker']['name'] . "hit and remove " . $damageOnVictim . "HP to " . $roundTurn['victim']['name']);
+                    $pp->writeLn($roundTurn['attacker']['name'] . " hit and remove " . $damageOnVictim . "HP to " . $roundTurn['victim']['name']);
                 }
                 $pp->writeProgressbar($roundTurn['victim']['hp'], max: $roundTurn['victim']['totalHp']);
             }
@@ -119,8 +122,28 @@ class Combat extends AbstractComponent {
 
         if ($userHp <= 0) {
             $pp->writeLn("GAME OVER ! " . $monsterName . " killed " . $character->name . " in " . $round . " rounds", 'red');
+            // TODO: Death message
         } else if ($enemyHp <= 0) {
             $pp->writeLn("VICTORY ! " . $character->name . " killed " . $monsterName . " in " . $round . " rounds", 'red');
+            $character->statistics->add('hp', $userHpTotal - $userHp);
+            $pp->write("Life: ");
+            $pp->writeProgressbar($userHp, max: $userHpTotal);
+
+            $monsterItemsToDrop = [
+                "TheMandalorian" => [new LaserSword(), new Mandalorian()],
+                "Bobafett" => [new HeavyBlaster()],
+                "LukeSkywalker" => [new LaserSword()],
+            ];
+
+            // TODO: Give HP, and item dropped
+            if (array_key_exists($monsterName, $monsterItemsToDrop)) {
+                foreach ($monsterItemsToDrop[$monsterName] as $itemDrop) {
+                    $this->container->dispatcher()->dispatch('inventory.give', ['item'=> $itemDrop]);
+                    $pp->writeLn('You get ' . $itemDrop->name(), null, 'green');
+                }
+            }
+
+            // TODO: GIVE XP TO USER WHEN VICTORY (check level formula)
         }
 
     }
