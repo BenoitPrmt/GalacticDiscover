@@ -4,6 +4,7 @@ namespace GalacticDiscover\Components\Combat;
 
 use GalacticDiscover\Components\Combat\Functions\FightFunction;
 use GalacticDiscover\Items\HeavyBlaster;
+use GalacticDiscover\Items\JetPack;
 use GalacticDiscover\Items\LaserSword;
 use GalacticDiscover\Items\Outfits\Mandalorian;
 use Jugid\Staurie\Component\AbstractComponent;
@@ -75,7 +76,7 @@ class Combat extends AbstractComponent {
                     ],
                     'victim' => [
                         'name' => $monsterName,
-                        'defense' => $enemy['defense'],
+                        'defense' => $enemy['defense'] * 20,
                         'hp' => &$enemyHp,
                         'totalHp' => $enemyHpTotal
                     ]
@@ -83,7 +84,7 @@ class Combat extends AbstractComponent {
                 [
                     'attacker' => [
                         'name' => $monsterName,
-                        'damage' => $enemy['skills']['attack'] * 20
+                        'damage' => $enemy['skills']['attack'] * 10
                     ],
                     'victim' => [
                         'name' => $character->name,
@@ -131,11 +132,11 @@ class Combat extends AbstractComponent {
 
             $monsterItemsToDrop = [
                 "TheMandalorian" => [new LaserSword(), new Mandalorian()],
-                "Bobafett" => [new HeavyBlaster()],
+                "Bobafett" => [new JetPack()],
                 "LukeSkywalker" => [new LaserSword()],
+                "Dooku" => [new HeavyBlaster()]
             ];
 
-            // TODO: Give HP, and item dropped
             if (array_key_exists($monsterName, $monsterItemsToDrop)) {
                 foreach ($monsterItemsToDrop[$monsterName] as $itemDrop) {
                     $this->container->dispatcher()->dispatch('inventory.give', ['item'=> $itemDrop]);

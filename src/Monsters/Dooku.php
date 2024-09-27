@@ -16,7 +16,7 @@ class Dooku extends Monster
   }
   public function level(): int
   {
-    return 60;
+    return 40;
   }
   public function health_points(): int
   {
@@ -24,7 +24,7 @@ class Dooku extends Monster
   }
   public function defense(): int
   {
-    return 70;
+    return 40;
   }
   public function experience(): int
   {

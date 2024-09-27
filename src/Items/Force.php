@@ -21,8 +21,8 @@ class Force extends Item_Equippable
   public function statistics(): array
   {
     return [
-      'damages' => 3,
-      'defense' => 2,
+      'damages' => 4,
+      'defense' => 3,
       'range' => 2
     ];
   }

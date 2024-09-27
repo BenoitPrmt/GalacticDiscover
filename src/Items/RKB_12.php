@@ -21,8 +21,8 @@ class RKB_12 extends Item_Equippable
   public function statistics(): array
   {
     return [
-      'damages' => 0,
-      'defense' => 0,
+      'damages' => 1,
+      'defense' => 1,
       'range' => 0
     ];
   }
