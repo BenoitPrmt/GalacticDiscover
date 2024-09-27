@@ -21,10 +21,10 @@ $staurie->register(
     PrettyPrinter::class,
     MainCharacter::class,
     Inventory::class,
-    Level::class,
     Combat::class
   ]
 );
+
 
 $container = $staurie->getContainer();
 $menu = $container->registerComponent(Menu::class);
@@ -41,6 +41,12 @@ $map->configuration([
   'directory' => __DIR__ . '/src/Maps',
   'namespace' => 'GalacticDiscover\Maps'
 ]);
+
+$level = $container->registerComponent(Level::class);
+$level->configuration([
+  'max_level' => 100
+]);
+
 
 $charStats = new Statistics();
 $charStats
