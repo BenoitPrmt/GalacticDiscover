@@ -2,27 +2,27 @@
 
 namespace GalacticDiscover\Maps;
 
-use GalacticDiscover\Monsters\DarthVader;
+use GalacticDiscover\Npcs\Yoda;
 use Jugid\Staurie\Component\Map\Blueprint;
 use Jugid\Staurie\Game\Position\Position;
 
-class Yavin4 extends Blueprint
+class Dagobah extends Blueprint
 {
   private Position $position;
 
   public function __construct()
   {
-    $this->position = new Position(x: 0, y: 7);
+    $this->position = new Position(x: 0, y: 6);
   }
 
   public function name(): string
   {
-    return 'Yavin4';
+    return 'Dagobah';
   }
 
   public function description(): string
   {
-    return "Yavin 4, also known as Yavin, was the jungle-covered fourth moon in orbit around the red gas giant Yavin Prime. Prior to and during the Galactic Civil War, it hosted the headquarters of the Alliance to Restore the Republic, a group of resistance fighters that opposed the dominant Galactic Empire.";
+    return 'Dagobah was a remote, unexplored planet in the Dagobah system, and one of the purest places in the galaxy within the Force.';
   }
 
   public function position(): Position
@@ -32,7 +32,7 @@ class Yavin4 extends Blueprint
 
   public function npcs(): array
   {
-    return [];
+    return [new Yoda()];
   }
 
   public function items(): array
@@ -42,6 +42,6 @@ class Yavin4 extends Blueprint
 
   public function monsters(): array
   {
-    return [new DarthVader()];
+    return [];
   }
 }
