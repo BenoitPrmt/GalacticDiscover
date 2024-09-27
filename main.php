@@ -10,43 +10,61 @@ use Jugid\Staurie\Component\Menu\Menu;
 use Jugid\Staurie\Component\PrettyPrinter\PrettyPrinter;
 use Jugid\Staurie\Staurie;
 use GalacticDiscover\Components\Combat\Combat;
+use GalacticDiscover\Items\RKB_12;
 
-require_once __DIR__.'/vendor/autoload.php'; //A REMPLACER
+require_once __DIR__ . '/vendor/autoload.php'; //A REMPLACER
 
-$staurie= new Staurie('Galactic Discover');
+$staurie = new Staurie('🪐 Galactic Discover');
 $staurie->register(
-    [
-        Console::class,
-        PrettyPrinter::class,
-        MainCharacter::class,
-        Inventory::class,
-        Level::class,
-        Combat::class
-    ]
+  [
+    Console::class,
+    PrettyPrinter::class,
+    MainCharacter::class,
+    Inventory::class,
+    Combat::class
+  ]
 );
 
-$container= $staurie->getContainer();
-$menu= $container->registerComponent(Menu::class);
+
+$container = $staurie->getContainer();
+$menu = $container->registerComponent(Menu::class);
 $menu->configuration([
-    'text'=> 'Welcome to this awesome test adventure',
-    'labels'=> [
-        'new_game' => 'Enter the world',
-        'quit'=> 'Exit game',
-    ]
+  'text' => 'Let us take you on a journey to a galaxy far, far away. 🚀',
+  'labels' => [
+    'new_game' => 'Enter the world',
+    'quit' => 'Exit game',
+  ]
 ]);
 
 $map = $container->registerComponent(Map::class);
 $map->configuration([
-    'directory' => __DIR__ . '/src/Maps',
-    'namespace' => 'GalacticDiscover\Maps'
+  'directory' => __DIR__ . '/src/Maps',
+  'namespace' => 'GalacticDiscover\Maps'
 ]);
 
+$level = $container->registerComponent(Level::class);
+$level->configuration([
+  'max_level' => 100
+]);
+
+
 $charStats = new Statistics();
-$charStats->addDefault('hp', 100);
+$charStats
+  ->addDefault('hp', default_value: 100)
+  ->addDefault('side (0: Dark Side | 100: Light Side)', default_value: 50);
+
 
 $character = $container->registerComponent(MainCharacter::class);
 $character->configuration([
-    'statistics' => $charStats
+  'statistics' => $charStats,
+  'equipment' => [
+    'head' => null,
+    'hand' => null,
+    'shield' => null,
+    'shoulders' => new RKB_12(),
+    'back' => null,
+    'outfit' => null,
+  ]
 ]);
 
 $staurie->run();

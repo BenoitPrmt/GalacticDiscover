@@ -32,6 +32,8 @@ class DarthVader extends Monster
   }
   public function skills(): array
   {
-    return [];
+    return [
+      "attack" => 5
+    ];
   }
 }

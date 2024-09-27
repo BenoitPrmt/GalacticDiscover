@@ -2,28 +2,27 @@
 
 namespace GalacticDiscover\Maps;
 
-use GalacticDiscover\Monsters\Dooku;
-use GalacticDiscover\Npcs\JarJarBinks;
+use GalacticDiscover\Monsters\TheMandalorian;
 use Jugid\Staurie\Component\Map\Blueprint;
 use Jugid\Staurie\Game\Position\Position;
 
-class Tatooine extends Blueprint
+class Naboo extends Blueprint
 {
   private Position $position;
 
   public function __construct()
   {
-    $this->position = new Position(0, 0);
+    $this->position = new Position(x: 0, y: 3);
   }
 
   public function name(): string
   {
-    return 'Tatooine';
+    return 'Naboo';
   }
 
   public function description(): string
   {
-    return 'Tatooine was a sparsely inhabited circumbinary desert planet located in the galaxy\'s Outer Rim Territories.';
+    return 'Naboo was a bountiful planet in the Chommell sector of the Mid Rim, in the Trailing Sectors and close to the border of the Outer Rim Territories. It was home to the indigenous Gungan species and to a population of humans known as the Naboo.';
   }
 
   public function position(): Position
@@ -33,7 +32,7 @@ class Tatooine extends Blueprint
 
   public function npcs(): array
   {
-    return [new JarJarBinks()];
+    return [];
   }
 
   public function items(): array
@@ -43,6 +42,6 @@ class Tatooine extends Blueprint
 
   public function monsters(): array
   {
-    return [new Dooku()];
+    return [new TheMandalorian()];
   }
 }

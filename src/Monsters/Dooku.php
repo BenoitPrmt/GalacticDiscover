@@ -32,6 +32,8 @@ class Dooku extends Monster
   }
   public function skills(): array
   {
-    return [];
+    return [
+      "attack" => 3
+    ];
   }
 }

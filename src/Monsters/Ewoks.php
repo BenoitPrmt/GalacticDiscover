@@ -32,6 +32,8 @@ class Ewoks extends Monster
   }
   public function skills(): array
   {
-    return [];
+    return [
+      "attack" => 0.5
+    ];
   }
 }
