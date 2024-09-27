@@ -2,7 +2,8 @@
 
 namespace GalacticDiscover\Maps;
 
-use GalacticDiscover\Monsters\TheMandalorian;
+use GalacticDiscover\Monsters\DarthSidious;
+use GalacticDiscover\Monsters\Wookies;
 use Jugid\Staurie\Component\Map\Blueprint;
 use Jugid\Staurie\Game\Position\Position;
 
@@ -42,6 +43,10 @@ class Endor extends Blueprint
 
   public function monsters(): array
   {
-    return [new TheMandalorian()];
+    $character = $this->container->getCharacter();
+    if ($character->statistics->value('side (0: Dark Side | 100: Light Side)') >= 50) {
+      return [new DarthSidious()];
+    }
+    return [new Wookies()];
   }
 }

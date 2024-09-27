@@ -4,11 +4,11 @@ namespace GalacticDiscover\Monsters;
 
 use Jugid\Staurie\Game\Monster;
 
-class BobbaFett extends Monster
+class BobaFett extends Monster
 {
   public function name(): string
   {
-    return "BobbaFett";
+    return "BobaFett";
   }
   public function description(): string
   {

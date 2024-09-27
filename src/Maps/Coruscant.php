@@ -2,7 +2,7 @@
 
 namespace GalacticDiscover\Maps;
 
-use GalacticDiscover\Monsters\TheMandalorian;
+use GalacticDiscover\Monsters\Grievious;
 use Jugid\Staurie\Component\Map\Blueprint;
 use Jugid\Staurie\Game\Position\Position;
 
@@ -42,6 +42,6 @@ class Coruscant extends Blueprint
 
   public function monsters(): array
   {
-    return [new TheMandalorian()];
+    return [new Grievious()];
   }
 }
