@@ -9,7 +9,7 @@ class JarJarBinks extends Npc
 {
   public function name(): string
   {
-    return "JarJarBinks";
+    return "JarJar";
   }
   public function description(): string
   {
