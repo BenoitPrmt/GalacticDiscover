@@ -8,7 +8,7 @@ class DeathTrooper extends Item_Equippable
 {
   public function name(): string
   {
-    return "DeathTrooper";
+    return "DeathTrooperOutfit";
   }
   public function description(): string
   {
