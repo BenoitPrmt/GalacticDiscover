@@ -23,7 +23,7 @@ class Force extends Item_Equippable
     return [
       'damages' => 3,
       'defense' => 2,
-      'range' => 4
+      'range' => 2
     ];
   }
 }
