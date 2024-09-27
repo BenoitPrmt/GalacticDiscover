@@ -3,6 +3,7 @@
 namespace GalacticDiscover\Npcs;
 
 use GalacticDiscover\Items\Force;
+use GalacticDiscover\Items\Outfits\Jedi;
 use Jugid\Staurie\Game\Npc;
 
 class Yoda extends Npc
@@ -19,6 +20,10 @@ class Yoda extends Npc
   {
     while (!$this->playerHasItem('Force')) {
       $this->giveItem(new Force());
+    }
+
+    while (!$this->playerHasItem('JediOutfit')) {
+      $this->giveItem(new Jedi());
     }
     return "Hello child";
   }
